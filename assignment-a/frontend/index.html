@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeerostock Inventory</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo-box">Z</div>
+                <h2>Zeerostock</h2>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3>Filters</h3>
+                <form id="search-form" class="filter-form">
+                    <div class="form-group">
+                        <label for="q">Keyword</label>
+                        <input type="text" id="q" placeholder="e.g., Hammer, Desk" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <div class="select-wrapper">
+                            <select id="category">
+                                <option value="All">All Categories</option>
+                                <option value="Tools">Tools</option>
+                                <option value="Furniture">Furniture</option>
+                                <option value="Electronics">Electronics</option>
+                                <option value="Office Supplies">Office Supplies</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="minPrice">Min ($)</label>
+                            <input type="number" id="minPrice" placeholder="0" min="0" />
+                        </div>
+                        <div class="form-group">
+                            <label for="maxPrice">Max ($)</label>
+                            <input type="number" id="maxPrice" placeholder="∞" min="0" />
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Apply Filters</button>
+                    <button type="reset" class="btn-secondary" onclick="setTimeout(() => document.getElementById('search-form').dispatchEvent(new Event('submit')), 10)">Clear</button>
+                </form>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div class="header-titles">
+                    <h1>Surplus Inventory</h1>
+                    <p>Real-time availability across verified suppliers</p>
+                </div>
+                <div class="actions">
+                    <span id="results-count" class="pill-badge">0 items found</span>
+                </div>
+            </header>
+
+            <div class="content-scroll">
+                <div id="results-container" class="inventory-grid">
+                    <!-- Cards will be injected here via app.js -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
