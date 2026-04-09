@@ -63,6 +63,7 @@ app.get('/search', (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`Backend is running ${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Assignment A Service started on port ${PORT}`);
 });
+
